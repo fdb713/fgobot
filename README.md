@@ -42,6 +42,7 @@ for reference only:
 ```
 appmedia - appmedia ranking
 drop - drop statistics
+gamewith - gamewith ranking link
 hougu - hougu damage quick reference
 price - compare JPY to CNY and 3rd-party charge
 servant - send link of servants by rare and class from atwiki

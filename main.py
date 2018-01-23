@@ -143,6 +143,9 @@ https://xianlechuanshuo.github.io/fgo2/calc4.html
             tu_jihua_url = "https://item.taobao.com/item.htm?spm=2013.1.w4023-16844942798.13.5692e503t594AU&id=558505049792"
             reply += "\n秃计划 {}".format(tu_jihua_url)
 
+        if text.startswith("/gamewith"):
+            reply = "https://gamewith.jp/fgo/article/show/62409"
+
         if text.startswith("/summon"):
             simulator_url = "https://konatasick.github.io/test_simulator/"
             simulator_js = "https://konatasick.github.io/test_simulator/js/index.js"
@@ -162,6 +165,7 @@ https://xianlechuanshuo.github.io/fgo2/calc4.html
 Author: @fdb713
 /appmedia - appmedia ranking
 /drop - drop statistics
+/gamewith - gamewith ranking link
 /hougu - hougu damage quick reference
 /price - compare JPY to CNY and 3rd-party charge
 /servant - send link of servants by rare and class from atwiki
