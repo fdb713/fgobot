@@ -76,6 +76,10 @@ class Fgobot(telepot.aio.helper.ChatHandler):
                         qic = qi("td")
                         qia = qi("a")
                         reply += "{} [{}]({})\n".format(q(qic[2]).text(), q(qic[0]).text(), qia.attr("href"))
+                    if len_children == 5:
+                        qic = qi("td")
+                        qia = qi("a")
+                        reply += "{} [{}]({})\n".format(q(qic[1]).text(), q(qic[0]).text(), qia.attr("href"))
             await self.sender.sendMessage(reply, parse_mode="Markdown")
 
     def reply_text(self, text):
