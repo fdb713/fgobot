@@ -68,18 +68,18 @@ class Fgobot(telepot.aio.helper.ChatHandler):
                 # remove thead
                 table_trs = table_rank("tr")[1:]
                 reply = "%s\n" % rank_url
-                reply += "サーヴァント　総合　高難　周回"
+                reply += "サーヴァント　総合　高難　周回\n"
                 for i in table_trs:
                     qi = q(i)
                     len_children = len(qi.children())
                     if len_children == 5:
                         qic = qi("td")
                         qia = qi("a")
-                        qimg = qi("img")[3]
+                        qimg = qi("img")[2]
                         sougou = q(qimg).attr("src").split('/')[-1].rstrip('.png')
                         if sougou == "A-1":
                             sougou = "A+"
-                        reply += "{} [{}]({})　{}　{}　{}\n".format(q(qic[0]).text(), q(qic[0]).text(), qia.attr("href"), sougou, q(qic[3]).text(), q(qic[4]).text())
+                        reply += "[{}]({})　{}　{}　{}\n".format(q(qic[0]).text(), qia.attr("href"), sougou, q(qic[3]).text(), q(qic[4]).text())
             await self.sender.sendMessage(reply, parse_mode="Markdown")
 
     def reply_text(self, text):
