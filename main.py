@@ -63,23 +63,23 @@ class Fgobot(telepot.aio.helper.ChatHandler):
             r = requests.get(rank_url)
             if r.status_code == 200:
                 rq = q(r.content.decode("utf-8"))
-                tables = rq(".post-content > table[border='1']")
-                table_rank = q((tables)[1])
+                tables = rq(".post-content > table")
+                table_rank = q((tables)[6])
+                # remove thead
                 table_trs = table_rank("tr")[1:]
                 reply = "%s\n" % rank_url
+                reply += "サーヴァント　総合　高難　周回"
                 for i in table_trs:
                     qi = q(i)
                     len_children = len(qi.children())
-                    if len_children == 1:
-                        reply += "\n%s\n" % qi.text()
-                    if len_children == 3:
-                        qic = qi("td")
-                        qia = qi("a")
-                        reply += "{} [{}]({})\n".format(q(qic[2]).text(), q(qic[0]).text(), qia.attr("href"))
                     if len_children == 5:
                         qic = qi("td")
                         qia = qi("a")
-                        reply += "{} [{}]({})\n".format(q(qic[1]).text(), q(qic[0]).text(), qia.attr("href"))
+                        qimg = qi("img")[3]
+                        sougou = q(qimg).attr("src").split('/')[-1].rstrip('.png')
+                        if sougou == "A-1":
+                            sougou = "A+"
+                        reply += "{} [{}]({})　{}　{}　{}\n".format(q(qic[0]).text(), q(qic[0]).text(), qia.attr("href"), sougou, q(qic[3]).text(), q(qic[4]).text())
             await self.sender.sendMessage(reply, parse_mode="Markdown")
 
     def reply_text(self, text):
