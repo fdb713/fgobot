@@ -84,7 +84,7 @@ class Fgobot(telepot.aio.helper.ChatHandler):
 
     def reply_text(self, text):
         reply = "meow"
-        markup = None
+        markup = ReplyKeyboardRemove()
         if text.startswith("/appmedia"):
             reply = "Which ranking?"
             markup = InlineKeyboardMarkup(inline_keyboard=[
