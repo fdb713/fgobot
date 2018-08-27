@@ -9,10 +9,11 @@ import json
 from pyquery import PyQuery as q
 from telepot.aio.loop import MessageLoop
 from telepot.aio.delegate import pave_event_space, per_chat_id, create_open, include_callback_query_chat_id
-from telepot.namedtuple import ReplyKeyboardMarkup, KeyboardButton
+from telepot.namedtuple import ReplyKeyboardMarkup, KeyboardButton, ReplyKeyboardRemove
 from telepot.namedtuple import InlineKeyboardMarkup, InlineKeyboardButton
 from collections import OrderedDict
 from configparser import ConfigParser
+
 
 class Fgobot(telepot.aio.helper.ChatHandler):
     def __init__(self, *args, **kwargs):
