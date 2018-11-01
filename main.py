@@ -152,7 +152,7 @@ https://xianlechuanshuo.github.io/fgo2/calc4.html
             reply = "https://gamewith.jp/fgo/article/show/62409"
 
         if text.startswith("/summon"):
-            simulator_url = "https://konatasick.github.io/test_simulator/"
+            simulator_url = "https://konatasick.github.io/test_simulator/pool.html?"
             simulator_js = "https://konatasick.github.io/test_simulator/js/index.js"
             reply = "Summon list\n%s\n\n" % simulator_url
             r = requests.get(simulator_js)
