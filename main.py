@@ -159,7 +159,7 @@ https://xianlechuanshuo.github.io/fgo2/calc4.html
             if r.status_code == 200:
                 rcontent = r.content.decode("utf-8")
                 rcontent = rcontent.replace("\n", "")
-                summon_json = re.findall('"sites"\:(.*)for', rcontent)[0].rstrip('}')
+                summon_json = re.findall('"sites"\:(.*)\/\*', rcontent)[0].rstrip('}')
                 summon_json = json.loads(summon_json)
                 summon_json_last_ten = summon_json[::-1][:10]
                 for i in summon_json_last_ten:
